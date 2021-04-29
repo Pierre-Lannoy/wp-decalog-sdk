@@ -174,8 +174,8 @@ class Logger implements \Psr\Log\LoggerInterface {
 	 * Logs an information with an arbitrary level.
 	 *
 	 * @param  \Psr\Log\LogLevel    $level   The level of the message to log.
-	 * @param  string               $message Optional. The message to log.
-	 * @param  array                $context The context of the event.
+	 * @param  string               $message The message to log.
+	 * @param  array                $context Optional. The context of the event.
 	 *                                       FYI, DecaLog has its own context-aware logging system. The only element of context
 	 *                                       that you can pass to DecaLog is a numerical error code ($context['code']). All other
 	 *                                       element of context will be removed.
