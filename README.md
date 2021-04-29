@@ -1,1 +1,1 @@
-# wp-decalog-sdk
+# WordPress DecaLog SDK
