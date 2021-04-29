@@ -13,7 +13,7 @@ namespace PerfOpsOne\DecaLog;
  * DecaLog PSR-3 logger class.
  *
  * This class defines all code necessary to log events with DecaLog.
- * If DecaLog is not installed, it will do nothing and will do not throw errors.
+ * If DecaLog is not installed, it will do nothing and will not throw errors.
  *
  * @package SDK
  * @author  Pierre Lannoy <https://pierre.lannoy.fr/>.
