@@ -91,10 +91,10 @@ class Engine {
 	}
 
 	/**
-	 * Get a registered logger.
+	 * Get a registered events logger.
 	 *
 	 * @param string $slug    The slug identifier.
-	 * @return  \DecaLog\EventLogger    The corresponding event logger.
+	 * @return  \DecaLog\EventsLogger    The corresponding events logger.
 	 * @throws \DecaLog\Exception\InvalidSlugException
 	 * @since 1.0.0
 	 */
@@ -107,6 +107,25 @@ class Engine {
 			static::$loggers[ $slug ]['logging'] = new \DecaLog\EventsLogger( static::$loggers[ $slug ]['class'], static::$loggers[ $slug ]['name'], static::$loggers[ $slug ]['version'] );
 		}
 		return static::$loggers[ $slug ]['logging'];
+	}
+
+	/**
+	 * Get a registered metrics logger.
+	 *
+	 * @param string $slug    The slug identifier.
+	 * @return  \DecaLog\MetricsLogger    The corresponding metrics logger.
+	 * @throws \DecaLog\Exception\InvalidSlugException
+	 * @since 1.0.0
+	 */
+	public static function metricsLogger( $slug ) {
+		$slug = static::getLoggerSlug( $slug );
+		if ( '' === $slug ) {
+			throw new \DecaLog\Exception\InvalidSlugException( 'No registered logger with this slug.' );
+		}
+		if ( ! static::$loggers[ $slug ]['monitoring'] ) {
+			static::$loggers[ $slug ]['monitoring'] = new \DecaLog\MetricsLogger( static::$loggers[ $slug ]['class'], static::$loggers[ $slug ]['name'], static::$loggers[ $slug ]['version'] );
+		}
+		return static::$loggers[ $slug ]['monitoring'];
 	}
 
 

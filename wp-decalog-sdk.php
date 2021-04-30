@@ -28,3 +28,6 @@ $slug = 'my-plugin-slug';
 
 //\DecaLog\Engine::eventsLogger( $slug )->info( 'That\'s ok!');
 
+\DecaLog\Engine::metricsLogger( $slug )->createProdCounter( 'AAAAA', 'HHHHHHHHHHH');
+\DecaLog\Engine::metricsLogger( $slug )->incProdCounter( 'AAAAA', 123456);
+
