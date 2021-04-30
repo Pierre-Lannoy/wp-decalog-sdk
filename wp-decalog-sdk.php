@@ -24,10 +24,12 @@ require_once __DIR__ . '/vendor/autoload.php';
 
 $slug = 'my-plugin-slug';
 
-\DecaLog\Engine::initPlugin( $slug, 'First Plugin', '1.0.0');
+\DecaLog\Engine::initPlugin( $slug, 'My Plugin Name', '1.0.0');
 
-//\DecaLog\Engine::eventsLogger( $slug )->info( 'That\'s ok!');
+$events = \DecaLog\Engine::eventsLogger( $slug );
 
-\DecaLog\Engine::metricsLogger( $slug )->createProdCounter( 'AAAAA', 'HHHHHHHHHHH');
-\DecaLog\Engine::metricsLogger( $slug )->incProdCounter( 'AAAAA', 123456);
+//$events->info( 'That\'s ok!');
+
+//\DecaLog\Engine::metricsLogger( $slug )->createProdCounter( 'AAAAA', 'HHHHHHHHHHH');
+//\DecaLog\Engine::metricsLogger( $slug )->incProdCounter( 'AAAAA', 123456);
 
