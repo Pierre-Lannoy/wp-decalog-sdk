@@ -5,4 +5,4 @@
 /.gitattributes export-ignore
 /.gitignore export-ignore
 /.github export-ignore
-/wp-decalog-sdk export-ignore
+/wp-decalog-sdk.php export-ignore
