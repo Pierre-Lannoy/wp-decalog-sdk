@@ -58,7 +58,7 @@ class Logger implements \Psr\Log\LoggerInterface {
 		if ( $logger instanceof \Psr\Log\LoggerInterface ) {
 			$this->loggers[] = $logger;
 		} else {
-			throw new \DecaLog\Exception\InvalidLoggerException( 'Local logger must implement \Psr\Log\LoggerInterface.' );
+			throw new \DecaLog\Exception\InvalidLoggerException( 'The logger do not implement \Psr\Log\LoggerInterface.' );
 		}
 	}
 
