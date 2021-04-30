@@ -2,6 +2,5 @@
 
 namespace DecaLog\Exception;
 
-class InvalidLoggerException extends \InvalidArgumentException
-{
+class InvalidLoggerException extends \InvalidArgumentException {
 }
