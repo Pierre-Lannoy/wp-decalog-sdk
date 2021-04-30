@@ -19,7 +19,7 @@ namespace DecaLog;
  * @author  Pierre Lannoy <https://pierre.lannoy.fr/>.
  * @since   1.0.0
  */
-class EventLogger implements \Psr\Log\LoggerInterface {
+class EventsLogger implements \Psr\Log\LoggerInterface {
 
 	/**
 	 * The "true" logger instances.

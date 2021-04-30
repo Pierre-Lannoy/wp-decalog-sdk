@@ -98,13 +98,13 @@ class Engine {
 	 * @throws \DecaLog\Exception\InvalidSlugException
 	 * @since 1.0.0
 	 */
-	public static function eventLogger( $slug ) {
+	public static function eventsLogger( $slug ) {
 		$slug = static::getLoggerSlug( $slug );
 		if ( '' === $slug ) {
 			throw new \DecaLog\Exception\InvalidSlugException( 'No registered logger with this slug.' );
 		}
 		if ( ! static::$loggers[ $slug ]['logging'] ) {
-			static::$loggers[ $slug ]['logging'] = new \DecaLog\EventLogger( static::$loggers[ $slug ]['class'], static::$loggers[ $slug ]['name'], static::$loggers[ $slug ]['version'] );
+			static::$loggers[ $slug ]['logging'] = new \DecaLog\EventsLogger( static::$loggers[ $slug ]['class'], static::$loggers[ $slug ]['name'], static::$loggers[ $slug ]['version'] );
 		}
 		return static::$loggers[ $slug ]['logging'];
 	}

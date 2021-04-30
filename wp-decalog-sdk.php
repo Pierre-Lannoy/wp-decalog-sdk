@@ -26,5 +26,5 @@ $slug = 'my-plugin-slug';
 
 \DecaLog\Engine::initPlugin( $slug, 'First Plugin', '1.0.0');
 
-//\DecaLog\Engine::eventLogger( $slug )->info( 'That\'s ok!');
+//\DecaLog\Engine::eventsLogger( $slug )->info( 'That\'s ok!');
 
