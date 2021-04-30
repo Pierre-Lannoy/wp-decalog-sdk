@@ -1,6 +1,6 @@
 <?php
 
-namespace DecaLog;
+namespace DecaLog\Exception;
 
 class InvalidLoggerException extends \InvalidArgumentException
 {
