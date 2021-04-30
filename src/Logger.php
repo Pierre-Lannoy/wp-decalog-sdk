@@ -25,7 +25,7 @@ class Logger implements \Psr\Log\LoggerInterface {
 	 * The "true" logger instances.
 	 *
 	 * @since  1.0.0
-	 * @var    array    $loggers    Maintains the internal logger list.
+	 * @var    array    $loggers    Maintains the internal loggers list.
 	 */
 	private $loggers = null;
 
