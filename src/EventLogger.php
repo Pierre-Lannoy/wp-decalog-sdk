@@ -51,7 +51,7 @@ class EventLogger implements \Psr\Log\LoggerInterface {
 	 * a logger and you want to continue to log things with it at the same time as with DecaLog.
 	 *
 	 * @param object $logger  The local logger to add. Must implement \Psr\Log\LoggerInterface.
-	 * @throws \Psr\Log\InvalidArgumentException
+	 * @throws \DecaLog\Exception\InvalidLoggerException
 	 * @since 1.0.0
 	 */
 	public function addLocalLogger( $logger ) {
