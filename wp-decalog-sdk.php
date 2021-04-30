@@ -23,3 +23,8 @@ if ( ! defined( 'WPINC' ) ) {
 require_once __DIR__ . '/vendor/autoload.php';
 
 $slug = 'my-plugin-slug';
+
+\DecaLog\Engine::initPlugin( $slug, 'First Plugin', '1.0.0');
+
+//\DecaLog\Engine::eventLogger( $slug )->info( 'That\'s ok!');
+
