@@ -22,12 +22,12 @@ namespace PerfOpsOne\DecaLog;
 class Logger implements \Psr\Log\LoggerInterface {
 
 	/**
-	 * The "true" Logger instance.
+	 * The "true" logger instances.
 	 *
 	 * @since  1.0.0
-	 * @var    \Decalog\Plugin\Feature\DLogger|\PerfOpsOne\DecaLog\Feature\DLogger    $logger    Maintains the internal Logger instance.
+	 * @var    array    $loggers    Maintains the internal logger list.
 	 */
-	private $logger = null;
+	private $loggers = null;
 
 	/**
 	 * Initialize the class and set its properties.
@@ -39,9 +39,26 @@ class Logger implements \Psr\Log\LoggerInterface {
 	 */
 	public function __construct( $class, $name = null, $version = null ) {
 		if ( class_exists( '\Decalog\Plugin\Feature\DLogger' ) ) {
-			$this->logger = new \Decalog\Plugin\Feature\DLogger( $class, $name, $version, null, true );
+			$this->loggers[] = new \Decalog\Plugin\Feature\DLogger( $class, $name, $version, null, true );
 		} else {
-			$this->logger = new \PerfOpsOne\DecaLog\Feature\DLogger( $class, $name, $version, null, true );
+			$this->loggers[] = new \PerfOpsOne\DecaLog\Feature\DLogger( $class, $name, $version, null, true );
+		}
+	}
+
+	/**
+	 * Adds a local logger.
+	 * "Local" means specific to your theme or plugin. It is only needed in case your theme or plugin already implements
+	 * a logger and you want to continue to log things with it at the same time as with DecaLog.
+	 *
+	 * @param object $logger  The local logger to add. Must implement \Psr\Log\LoggerInterface.
+	 * @throws \Psr\Log\InvalidArgumentException
+	 * @since 1.0.0
+	 */
+	public function addLocalLogger( $logger ) {
+		if ( $logger instanceof \Psr\Log\LoggerInterface ) {
+			$this->loggers[] = $logger;
+		} else {
+			throw new \PerfOpsOne\DecaLog\InvalidLoggerException( 'Local logger must implement \Psr\Log\LoggerInterface.' );
 		}
 	}
 
@@ -57,7 +74,9 @@ class Logger implements \Psr\Log\LoggerInterface {
 	 * @since  1.0.0
 	 */
 	public function emergency( $message, $context = [] ) {
-		$this->logger->emergency( (string) $message, array_key_exists( 'code', $context ) ? (int) $context['code'] : 0 );
+		foreach ( $this->loggers as $logger ) {
+			$logger->emergency( (string) $message, array_key_exists( 'code', $context ) ? (int) $context['code'] : 0 );
+		}
 	}
 
 	/**
@@ -73,7 +92,9 @@ class Logger implements \Psr\Log\LoggerInterface {
 	 * @since  1.0.0
 	 */
 	public function alert( $message, $context = [] ) {
-		$this->logger->alert( (string) $message, array_key_exists( 'code', $context ) ? (int) $context['code'] : 0 );
+		foreach ( $this->loggers as $logger ) {
+			$logger->alert( (string) $message, array_key_exists( 'code', $context ) ? (int) $context['code'] : 0 );
+		}
 	}
 
 	/**
@@ -89,7 +110,9 @@ class Logger implements \Psr\Log\LoggerInterface {
 	 * @since  1.0.0
 	 */
 	public function critical( $message, $context = [] ) {
-		$this->logger->critical( (string) $message, array_key_exists( 'code', $context ) ? (int) $context['code'] : 0 );
+		foreach ( $this->loggers as $logger ) {
+			$logger->critical( (string) $message, array_key_exists( 'code', $context ) ? (int) $context['code'] : 0 );
+		}
 	}
 
 	/**
@@ -105,7 +128,9 @@ class Logger implements \Psr\Log\LoggerInterface {
 	 * @since  1.0.0
 	 */
 	public function error( $message, $context = [] ) {
-		$this->logger->error( (string) $message, array_key_exists( 'code', $context ) ? (int) $context['code'] : 0 );
+		foreach ( $this->loggers as $logger ) {
+			$logger->error( (string) $message, array_key_exists( 'code', $context ) ? (int) $context['code'] : 0 );
+		}
 	}
 
 	/**
@@ -121,7 +146,9 @@ class Logger implements \Psr\Log\LoggerInterface {
 	 * @since  1.0.0
 	 */
 	public function warning( $message, $context = [] ) {
-		$this->logger->warning( (string) $message, array_key_exists( 'code', $context ) ? (int) $context['code'] : 0 );
+		foreach ( $this->loggers as $logger ) {
+			$logger->warning( (string) $message, array_key_exists( 'code', $context ) ? (int) $context['code'] : 0 );
+		}
 	}
 
 	/**
@@ -136,7 +163,9 @@ class Logger implements \Psr\Log\LoggerInterface {
 	 * @since  1.0.0
 	 */
 	public function notice( $message, $context = [] ) {
-		$this->logger->notice( (string) $message, array_key_exists( 'code', $context ) ? (int) $context['code'] : 0 );
+		foreach ( $this->loggers as $logger ) {
+			$logger->notice( (string) $message, array_key_exists( 'code', $context ) ? (int) $context['code'] : 0 );
+		}
 	}
 
 	/**
@@ -151,7 +180,9 @@ class Logger implements \Psr\Log\LoggerInterface {
 	 * @since  1.0.0
 	 */
 	public function info( $message, $context = [] ) {
-		$this->logger->info( (string) $message, array_key_exists( 'code', $context ) ? (int) $context['code'] : 0 );
+		foreach ( $this->loggers as $logger ) {
+			$logger->info( (string) $message, array_key_exists( 'code', $context ) ? (int) $context['code'] : 0 );
+		}
 	}
 
 	/**
@@ -167,7 +198,9 @@ class Logger implements \Psr\Log\LoggerInterface {
 	 * @since  1.0.0
 	 */
 	public function debug( $message, $context = [] ) {
-		$this->logger->debug( (string) $message, array_key_exists( 'code', $context ) ? (int) $context['code'] : 0 );
+		foreach ( $this->loggers as $logger ) {
+			$logger->debug( (string) $message, array_key_exists( 'code', $context ) ? (int) $context['code'] : 0 );
+		}
 	}
 
 	/**
@@ -183,6 +216,8 @@ class Logger implements \Psr\Log\LoggerInterface {
 	 * @since  1.0.0
 	 */
 	public function log( $level, $message, $context = [] ) {
-		$this->logger->log( $level, (string) $message, array_key_exists( 'code', $context ) ? (int) $context['code'] : 0 );
+		foreach ( $this->loggers as $logger ) {
+			$logger->log( $level, (string) $message, array_key_exists( 'code', $context ) ? (int) $context['code'] : 0 );
+		}
 	}
 }
