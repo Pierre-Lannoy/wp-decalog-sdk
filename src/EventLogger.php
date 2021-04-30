@@ -27,7 +27,7 @@ class EventLogger implements \Psr\Log\LoggerInterface {
 	 * @since  1.0.0
 	 * @var    array    $loggers    Maintains the internal loggers list.
 	 */
-	private $loggers = null;
+	private $loggers = [];
 
 	/**
 	 * Initialize the class and set its properties.
@@ -40,8 +40,6 @@ class EventLogger implements \Psr\Log\LoggerInterface {
 	public function __construct( $class, $name = null, $version = null ) {
 		if ( class_exists( '\Decalog\Plugin\Feature\DLogger' ) ) {
 			$this->loggers[] = new \Decalog\Plugin\Feature\DLogger( $class, $name, $version, null, true );
-		} else {
-			$this->loggers[] = new \DecaLog\Feature\DLogger( $class, $name, $version, null, true );
 		}
 	}
 
