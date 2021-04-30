@@ -1,6 +1,6 @@
 <?php
 
-namespace PerfOpsOne\DecaLog;
+namespace DecaLog;
 
 class InvalidLoggerException extends \InvalidArgumentException
 {

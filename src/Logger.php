@@ -7,7 +7,7 @@
  * @since   1.0.0
  */
 
-namespace PerfOpsOne\DecaLog;
+namespace DecaLog;
 
 /**
  * DecaLog PSR-3 logger class.
@@ -41,7 +41,7 @@ class Logger implements \Psr\Log\LoggerInterface {
 		if ( class_exists( '\Decalog\Plugin\Feature\DLogger' ) ) {
 			$this->loggers[] = new \Decalog\Plugin\Feature\DLogger( $class, $name, $version, null, true );
 		} else {
-			$this->loggers[] = new \PerfOpsOne\DecaLog\Feature\DLogger( $class, $name, $version, null, true );
+			$this->loggers[] = new \DecaLog\Feature\DLogger( $class, $name, $version, null, true );
 		}
 	}
 
@@ -58,7 +58,7 @@ class Logger implements \Psr\Log\LoggerInterface {
 		if ( $logger instanceof \Psr\Log\LoggerInterface ) {
 			$this->loggers[] = $logger;
 		} else {
-			throw new \PerfOpsOne\DecaLog\InvalidLoggerException( 'Local logger must implement \Psr\Log\LoggerInterface.' );
+			throw new \DecaLog\InvalidLoggerException( 'Local logger must implement \Psr\Log\LoggerInterface.' );
 		}
 	}
 

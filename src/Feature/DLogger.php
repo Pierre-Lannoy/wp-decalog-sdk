@@ -7,7 +7,7 @@
  * @since   1.0.0
  */
 
-namespace PerfOpsOne\DecaLog\Feature;
+namespace DecaLog\Feature;
 
 /**
  * Dummy logger class.

@@ -17,6 +17,6 @@
     "psr/log": "^1.0.1"
   },
   "autoload": {
-    "psr-4": {"PerfOpsOne\\DecaLog\\": "./src"}
+    "psr-4": {"DecaLog\\": "./src"}
   }
 }
