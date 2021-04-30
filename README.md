@@ -27,3 +27,26 @@ Thanks to composer, the installation of the sdk requires one command:
 `composer require perfopsone/decalog`
 
 ## Using WordPress DecaLog SDK
+
+Before using the SDK, verify the vendor autoload is included, then initialize the DecaLog engine as follows:
+
+```php
+<?php
+    
+    require_once __DIR__ . '/vendor/autoload.php';
+    
+    // If you're developing a plugin use this:
+    \DecaLog\Engine::initPlugin( 'my-plugin-slug', 'My Plugin Name', '1.0.0' );
+    
+    // If you're developing a theme use this:
+    \DecaLog\Engine::initTheme( 'my-theme-slug', 'My Theme Name', '1.0.0' );
+
+```
+
+_Note: I recommend to do this as soon as possible in the loading order of your plugin or theme. For example, if you're developing a plugin, you should do this initialization in the main plugin file._
+
+Once done, you can use the __DecaLog__ engine anywhere in your plugin or theme.
+
+### Events Logging
+
+To log an event, 
