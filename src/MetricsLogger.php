@@ -39,7 +39,7 @@ class MetricsLogger {
 	 */
 	public function __construct( $class, $name = null, $version = null ) {
 		if ( class_exists( '\Decalog\Plugin\Feature\DMonitor' ) ) {
-			$this->monitor = new \Decalog\Plugin\Feature\DMonitor( $class, $name, $version, true );
+			$this->monitor = new \Decalog\Plugin\Feature\DMonitor( $class, $name, $version );
 		}
 	}
 
