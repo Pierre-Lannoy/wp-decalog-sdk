@@ -5,7 +5,7 @@
 
 __WordPress DecaLog SDK__ is a way to use [DecaLog](https://github.com/Pierre-Lannoy/wp-decalog), the free observability toolkit for WordPress, in your own plugins or themes.
 
-You may use this SDK on all WordPress installations: if __DecaLog__ is installed your users will take advantage of all the efforts you've made to report events and provide metrics or traces inside your plugin or theme; if __DecaLog__ is not installed, the SDK will silently discard all these important information...
+You may use this SDK on all WordPress installations: if __DecaLog__ is installed your users will take advantage of all the efforts you've made to report events and provide metrics or traces inside your plugin or theme; if __DecaLog__ is not installed, the SDK will silently discard all these important information ...
 
 > ⚠️ This an alpha pre-version. Consider it unstable. Do not use in production: specifications, features and interfaces are subject to changes.
 
@@ -28,7 +28,7 @@ Thanks to composer, the installation of the sdk requires one command:
 
 ## Using WordPress DecaLog SDK
 
-Before using the SDK, verify the vendor autoload is included, then initialize the DecaLog engine as follows:
+Before using the SDK, verify the vendor autoload is included, then initialize the __DecaLog__ engine as follows:
 
 ```php
 <?php
@@ -40,13 +40,12 @@ Before using the SDK, verify the vendor autoload is included, then initialize th
     
     // If you're developing a theme use this:
     \DecaLog\Engine::initTheme( 'my-theme-slug', 'My Theme Name', '1.0.0' );
-
 ```
 
-_Note: I recommend to do this as soon as possible in the loading order of your plugin or theme. For example, if you're developing a plugin, you should do this initialization in the main plugin file._
+_Note: I recommend to do this as soon as possible in the loading order of your plugin or theme. For example, if you're developing a plugin, you should do this initialization in the first lines of main plugin file._
 
 Once done, you can use the __DecaLog__ engine anywhere in your plugin or theme.
 
 ### Events Logging
 
-To log an event, 
+To log [an event](https://github.com/Pierre-Lannoy/wp-decalog/blob/master/LOGGING.md), ...
