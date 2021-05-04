@@ -20,6 +20,8 @@ namespace DecaLog;
  */
 class Engine {
 
+	// TODO: see how to use loggers list in admin UI
+
 	/**
 	 * The logger instances and parameters.
 	 *
