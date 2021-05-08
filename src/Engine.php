@@ -130,6 +130,23 @@ class Engine {
 		return static::$loggers[ $slug ]['monitoring'];
 	}
 
-
+	/**
+	 * Get a registered traces logger.
+	 *
+	 * @param string $slug    The slug identifier.
+	 * @return  \DecaLog\TracesLogger    The corresponding traces logger.
+	 * @throws \DecaLog\Exception\InvalidSlugException
+	 * @since 1.0.0
+	 */
+	public static function tracesLogger( $slug ) {
+		$slug = static::getLoggerSlug( $slug );
+		if ( '' === $slug ) {
+			throw new \DecaLog\Exception\InvalidSlugException( 'No registered logger with this slug.' );
+		}
+		if ( ! static::$loggers[ $slug ]['tracing'] ) {
+			static::$loggers[ $slug ]['tracing'] = new \DecaLog\TracesLogger( static::$loggers[ $slug ]['class'], static::$loggers[ $slug ]['name'], static::$loggers[ $slug ]['version'] );
+		}
+		return static::$loggers[ $slug ]['tracing'];
+	}
 
 }

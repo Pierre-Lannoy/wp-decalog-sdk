@@ -26,7 +26,13 @@ $slug = 'my-plugin-slug';
 
 \DecaLog\Engine::initPlugin( $slug, 'My Plugin Name', '1.0.0');
 
-$events = \DecaLog\Engine::eventsLogger( $slug );
+$events  = \DecaLog\Engine::eventsLogger( $slug );
+$metrics = \DecaLog\Engine::metricsLogger( $slug );
+$traces  = \DecaLog\Engine::tracesLogger( $slug );
+
+$sleep = $traces->start_span( 'test' );
+usleep(200000);
+$traces->end_span( $sleep );
 
 //$events->info( 'That\'s ok!');
 
