@@ -24,18 +24,44 @@ require_once __DIR__ . '/vendor/autoload.php';
 
 $slug = 'my-plugin-slug';
 
-\DecaLog\Engine::initPlugin( $slug, 'My Plugin Name', '1.0.0');
+\DecaLog\Engine::initPlugin( $slug, 'My Plugin Name', '1.0.0' );
 
 $events  = \DecaLog\Engine::eventsLogger( $slug );
 $metrics = \DecaLog\Engine::metricsLogger( $slug );
 $traces  = \DecaLog\Engine::tracesLogger( $slug );
 
-$sleep = $traces->start_span( 'test' );
-usleep(200000);
+$sleep = $traces->start_span( 'test bootstrap' );
+$span  = $traces->start_span( 'subtest bootstrap', $sleep );
+usleep( 200000 );
+$traces->end_span( $span );
+usleep( 50000 );
 $traces->end_span( $sleep );
 
-//$events->info( 'That\'s ok!');
 
-//\DecaLog\Engine::metricsLogger( $slug )->createProdCounter( 'AAAAA', 'HHHHHHHHHHH');
-//\DecaLog\Engine::metricsLogger( $slug )->incProdCounter( 'AAAAA', 123456);
+
+add_action(
+	'shutdown',
+	function() use ( &$traces ) {
+		$sleep = $traces->start_span( 'test shutdown' );
+		usleep( 100000 );
+		$traces->end_span( $sleep );
+	},
+	10,
+	0
+);
+
+add_action(
+	'wp_head',
+	function() use ( &$traces ) {
+		$sleep = $traces->start_span( 'test wp_head' );
+		$s     = $traces->start_span( 'subtest wp_head', $sleep );
+		usleep( 100000 );
+		$traces->end_span( $s );
+		usleep( 50000 );
+		$traces->end_span( $sleep );},
+	10,
+	0
+);
+
+
 

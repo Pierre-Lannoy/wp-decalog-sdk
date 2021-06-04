@@ -7,8 +7,6 @@ __WordPress DecaLog SDK__ is a way to use [DecaLog](https://github.com/Pierre-La
 
 You may use this SDK on all WordPress installations: if __DecaLog__ is installed your users will take advantage of all the efforts you've made to report events and provide metrics or traces inside your plugin or theme; if __DecaLog__ is not installed, the SDK will silently discard all these important information ...
 
-> ⚠️ This an alpha pre-version. Consider it unstable. Do not use in production: specifications, features and interfaces are subject to changes.
-
 ## Deploying WordPress DecaLog SDK
 
 Like __DecaLog__ itself, this SDK is ready to be used in production environments. So you don't have to worry about cleaning up before deployment. In fact, it's a good idea to leave it in production: if the installation target runs __DecaLog__, the users of your plugin or themes will benefit of full observability; if it's not installed, it will be totally invisible to them.
@@ -28,24 +26,4 @@ Thanks to composer, the installation of the sdk requires one command:
 
 ## Using WordPress DecaLog SDK
 
-Before using the SDK, verify the vendor autoload is included, then initialize the __DecaLog__ engine as follows:
-
-```php
-<?php
-    
-    require_once __DIR__ . '/vendor/autoload.php';
-    
-    // If you're developing a plugin use this:
-    \DecaLog\Engine::initPlugin( 'my-plugin-slug', 'My Plugin Name', '1.0.0' );
-    
-    // If you're developing a theme use this:
-    \DecaLog\Engine::initTheme( 'my-theme-slug', 'My Theme Name', '1.0.0' );
-```
-
-_Note: I recommend to do this as soon as possible in the loading order of your plugin or theme. For example, if you're developing a plugin, you should do this initialization in the first lines of main plugin file._
-
-Once done, you can use the __DecaLog__ engine anywhere in your plugin or theme.
-
-### Events Logging
-
-To log [an event](https://github.com/Pierre-Lannoy/wp-decalog/blob/master/LOGGING.md), ...
+For a full usage documentation, please go to [decalog.io](https://decalog.io)
