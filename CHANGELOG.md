@@ -3,6 +3,11 @@ All notable changes to **WordPress DecaLog SDK** are documented in this *changel
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/), and **WordPress DecaLog SDK** adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.1.0] - 2021-06-09
+
+### Added
+- New `DECALOG_MAX_SHUTDOWN_PRIORITY` constant allowing to set the maximum priority for a shutdown hook.
+
 ## [1.0.0] - 2021-06-04
 
 Initial release, in anticipation of the DecaLog 3 release.

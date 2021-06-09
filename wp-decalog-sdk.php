@@ -21,7 +21,7 @@ if ( ! defined( 'WPINC' ) ) {
 }
 
 require_once __DIR__ . '/vendor/autoload.php';
-
+/*
 $slug = 'my-plugin-slug';
 
 \DecaLog\Engine::initPlugin( $slug, 'My Plugin Name', '1.0.0' );
@@ -62,6 +62,6 @@ add_action(
 	10,
 	0
 );
-
+*/
 
 
