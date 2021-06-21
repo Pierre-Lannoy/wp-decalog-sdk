@@ -21,12 +21,14 @@ if ( ! defined( 'WPINC' ) ) {
 }
 
 require_once __DIR__ . '/vendor/autoload.php';
-/*
+
 $slug = 'my-plugin-slug';
 
 \DecaLog\Engine::initPlugin( $slug, 'My Plugin Name', '1.0.0' );
 
-$events  = \DecaLog\Engine::eventsLogger( $slug );
+
+
+/*$events  = \DecaLog\Engine::eventsLogger( $slug );
 $metrics = \DecaLog\Engine::metricsLogger( $slug );
 $traces  = \DecaLog\Engine::tracesLogger( $slug );
 
