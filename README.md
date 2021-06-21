@@ -1,4 +1,5 @@
 # WordPress DecaLog SDK
+![wordpress](https://badgen.net/badge/wordpress/4.0+/green)
 ![Packagist PHP Version Support](https://img.shields.io/packagist/php-v/perfopsone/decalog?style=flat-square)
 ![Packagist License](https://img.shields.io/packagist/l/perfopsone/decalog?style=flat-square)
 
