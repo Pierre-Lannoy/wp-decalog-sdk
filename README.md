@@ -1,5 +1,4 @@
 # WordPress DecaLog SDK
-![Packagist Version](https://img.shields.io/packagist/v/perfopsone/decalog?style=flat-square)
 ![Packagist PHP Version Support](https://img.shields.io/packagist/php-v/perfopsone/decalog?style=flat-square)
 ![Packagist License](https://img.shields.io/packagist/l/perfopsone/decalog?style=flat-square)
 
