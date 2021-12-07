@@ -7,7 +7,7 @@
  * Version:           1.0.0
  * Requires at least: 5.2
  * Requires PHP:      5.6
- * Author:            PerfOps One / Pierre Lannoy
+ * Author:            Pierre Lannoy / PerfOps One
  * Author URI:        https://perfops.one
  * License:           GPLv3
  * License URI:       https://www.gnu.org/licenses/gpl-3.0.html
