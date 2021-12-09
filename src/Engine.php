@@ -258,7 +258,7 @@ class Engine {
 		$result = '';
 		$date   = new \DateTime();
 		do {
-			$s       = $this->generate_v4();
+			$s       = self::generate_v4();
 			$s       = str_replace( '-', (string) ( $date->format( 'u' ) ), $s );
 			$result .= $s;
 			$l       = strlen( $result );
@@ -291,4 +291,8 @@ if ( ! defined( 'DECALOG_SPAN_MAIN_RUN' ) ) {
 }
 if ( ! defined( 'DECALOG_SPAN_SHUTDOWN' ) ) {
 	define( 'DECALOG_SPAN_SHUTDOWN', \DecaLog\Engine::generate_unique_id() );
+}
+
+if ( ! defined( 'DECALOG_TRACEID' ) ) {
+	define( 'DECALOG_TRACEID', $this->generate_unique_id( 32 ) );
 }
