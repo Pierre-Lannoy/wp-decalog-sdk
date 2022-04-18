@@ -3,6 +3,11 @@ All notable changes to **WordPress DecaLog SDK** are documented in this *changel
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/), and **WordPress DecaLog SDK** adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [3.0.0] - 2022-04-18
+
+### Added
+- New `\DecaLog\Engine::initLibrary()` method to specifically initialize DecaLog engine for libraries (thanks to [Loïc Antignac](https://github.com/webaxones) for the suggestion).
+
 ## [2.0.2] - 2021-12-09
 
 ### Fixed
