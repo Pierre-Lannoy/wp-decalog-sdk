@@ -1,5 +1,5 @@
 # WordPress DecaLog SDK
-![wordpress](https://badgen.net/badge/wordpress/6.1+/green)
+![wordpress](https://badgen.net/badge/wordpress/6.2+/green)
 ![DecaLog](https://badgen.net/badge/decalog/4.0+/orange)
 ![Packagist PHP Version Support](https://img.shields.io/packagist/php-v/perfopsone/decalog?style=flat-square)
 ![Packagist License](https://img.shields.io/packagist/l/perfopsone/decalog?style=flat-square)
@@ -14,7 +14,7 @@ Like __DecaLog__ itself, this SDK is ready to be used in production environments
 
 If your plugin or theme is working on the development environment where you've installed __DecaLog__ it will work on all your users' environments - whether __DecaLog__ is installed or not, assuming the following requirements:
 
-- WordPress version: __6.1 or higher__
+- WordPress version: __6.2 or higher__
 - DecaLog version: __4.0 or higher__
 - PHP version: __8.1 or higher__
 
