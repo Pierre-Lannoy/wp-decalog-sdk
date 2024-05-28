@@ -3,6 +3,11 @@ All notable changes to **WordPress DecaLog SDK** are documented in this *changel
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/), and **WordPress DecaLog SDK** adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [5.0.0] - 2024-05-28
+
+### Breaking Change
+- DecaLog SDK now uses PSR3 1.x and 3.x. You have to specify it. Fallback to PSR3 1.x if nothing is specified. See details [here](https://decalog.io/sdk/psr-3-versions/).
+
 ## [4.2.0] - 2024-05-07
 
 ### Changed
